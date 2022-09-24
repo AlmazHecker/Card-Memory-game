@@ -1,4 +1,3 @@
-// stitches.config.ts
 import { createStitches } from "@stitches/react";
 
 export const {
@@ -17,7 +16,7 @@ export const {
       gray500: "lightgray",
       active: "#00d0ba",
       "not-active": "#2a3e4a",
-      choosed: "#f7f664",
+      found: "#293239",
       background: "#00c2be",
     },
     fonts: {

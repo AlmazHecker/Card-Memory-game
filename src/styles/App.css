@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+body {
+  perspective: 500px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

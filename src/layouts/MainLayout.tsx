@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../components/UI/Button";
 import Card from "../components/UI/Card";
 import { styled } from "../styles/stitches.config";
 import { CARDS, Icard } from "../utils/data";
@@ -9,9 +10,22 @@ const MainLayout = () => {
   return (
     <Container>
       <Title>Card-Memory Game</Title>
+      <Toolbar>
+        <div>
+          <img src="https://img.icons8.com/fluency/25/000000/star.png" />
+          <img src="https://img.icons8.com/fluency/25/000000/star.png" />
+          <img src="https://img.icons8.com/fluency/25/000000/star.png" />
+        </div>
+        <Button>
+          <img
+            src="https://img.icons8.com/ios/20/000000/restart--v2.svg"
+            alt="reload"
+          />
+        </Button>
+      </Toolbar>
       <CardContainer>
-        {randomizedCards.map((card) => {
-          return <Card key={card.icon} icon={card.icon} />;
+        {randomizedCards.map((card, i) => {
+          return <Card key={i} {...card} />;
         })}
       </CardContainer>
     </Container>
@@ -44,7 +58,15 @@ const CardContainer = styled("div", {
   background: "$background",
 });
 
-const Title = styled("h2", {
+const Title = styled("h1", {
   fontFamily: "$Roboto",
   fontWeight: "lighter",
+  margin: 0,
+});
+
+const Toolbar = styled("div", {
+  width: "45%",
+  margin: "0 auto",
+  display: "flex",
+  justifyContent: "space-between",
 });
