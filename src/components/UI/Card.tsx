@@ -2,7 +2,11 @@ import React, { FC } from "react";
 import { styled } from "../../styles/stitches.config";
 import { Icard } from "../../utils/data";
 
-const Card: FC<Icard> = ({ icon, isActive, isFound }) => {
+interface CardProps extends Icard {
+  onClick(): void;
+}
+
+const Card: FC<CardProps> = ({ icon, isActive, isFound, onClick }) => {
   if (isFound) {
     return (
       <Container>
@@ -12,8 +16,14 @@ const Card: FC<Icard> = ({ icon, isActive, isFound }) => {
       </Container>
     );
   }
+
   return (
-    <Container>
+    <Container
+      onClick={onClick}
+      css={{
+        transform: isActive ? "rotateY(180deg)" : "",
+      }}
+    >
       <Front css={{ background: "$not-active" }}>
         <img
           src="https://img.icons8.com/ios/50/000000/question-mark--v1.png"
@@ -21,7 +31,7 @@ const Card: FC<Icard> = ({ icon, isActive, isFound }) => {
         />
       </Front>
       <Back css={{ background: "$active" }}>
-        <img src={icon} alt="card-icon" />
+        {isActive && <img src={icon} alt="card-icon" />}
       </Back>
     </Container>
   );
@@ -42,11 +52,7 @@ const Container = styled("div", {
   cursor: "pointer",
 
   transformStyle: "preserve-3d",
-  transition: "transform 1s linear",
-
-  "&:hover": {
-    transform: "rotateY(180deg)",
-  },
+  transition: "transform 0.5s linear",
 });
 
 const Front = styled("div", {
