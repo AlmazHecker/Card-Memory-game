@@ -25,10 +25,7 @@ const Card: FC<CardProps> = ({ icon, isActive, isFound, onClick }) => {
       }}
     >
       <Front css={{ background: "$not-active" }}>
-        <img
-          src="https://img.icons8.com/ios/50/000000/question-mark--v1.png"
-          alt="question-icon"
-        />
+        <img src="/icons/question-mark--v1.png" alt="question-icon" />
       </Front>
       <Back css={{ background: "$active" }}>
         {isActive && <img src={icon} alt="card-icon" />}

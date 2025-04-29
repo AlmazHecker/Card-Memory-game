@@ -10,13 +10,7 @@ interface ToolbarProps {
 const Toolbar: FC<ToolbarProps> = ({ onReset, attempts }) => {
   const getStars = () => {
     const stars = [1, 2, 3].map((item) => {
-      return (
-        <img
-          key={item}
-          src="https://img.icons8.com/fluency/25/000000/star.png"
-          alt="star"
-        />
-      );
+      return <img key={item} src="/icons/star.png" alt="star" />;
     });
 
     if (attempts > 10) stars.pop();
@@ -27,10 +21,7 @@ const Toolbar: FC<ToolbarProps> = ({ onReset, attempts }) => {
     <Container>
       <div>{getStars()}</div>
       <Button onClick={onReset}>
-        <img
-          src="https://img.icons8.com/ios/20/000000/restart--v2.svg"
-          alt="reload"
-        />
+        <img src="/icons/restart--v2.png" alt="reload" />
       </Button>
     </Container>
   );
