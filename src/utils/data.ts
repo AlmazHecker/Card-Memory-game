@@ -4,16 +4,20 @@ export interface Icard {
   isActive: boolean;
 }
 
-const UNIQUE_ICONS = [
-  "/icons/angularjs.png",
-  "/icons/moon-symbol.png",
-  "/icons/docker.png",
-  "/icons/berserk.png",
-  "/icons/google-logo.png",
-  "/icons/react.png",
-  "/icons/sharingan.png",
-  "/icons/naruto-sign.png",
+const ICON_NAMES = [
+  "angularjs",
+  "moon-symbol",
+  "docker",
+  "berserk",
+  "google-logo",
+  "react",
+  "sharingan",
+  "naruto-sign",
 ];
+
+const UNIQUE_ICONS = ICON_NAMES.map(
+  (name) => `${import.meta.env.BASE_URL}icons/${name}.png`
+);
 
 function shuffle<T>(array: T[]): T[] {
   return [...array].sort(() => Math.random() - 0.5);

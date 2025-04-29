@@ -10,7 +10,13 @@ interface ToolbarProps {
 const Toolbar: FC<ToolbarProps> = ({ onReset, attempts }) => {
   const getStars = () => {
     const stars = [1, 2, 3].map((item) => {
-      return <img key={item} src="/icons/star.png" alt="star" />;
+      return (
+        <img
+          key={item}
+          src={`${import.meta.env.BASE_URL}icons/star.png`}
+          alt="star"
+        />
+      );
     });
 
     if (attempts > 10) stars.pop();
@@ -21,7 +27,10 @@ const Toolbar: FC<ToolbarProps> = ({ onReset, attempts }) => {
     <Container>
       <div>{getStars()}</div>
       <Button onClick={onReset}>
-        <img src="/icons/restart--v2.png" alt="reload" />
+        <img
+          src={`${import.meta.env.BASE_URL}icons/restart--v2.png`}
+          alt="reload"
+        />
       </Button>
     </Container>
   );
